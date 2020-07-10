@@ -1,11 +1,11 @@
 # Auction Insights - Visualization
 
-__Visualize auction insights data over time, broken down by domain, directly in Data Studio.__
+__Visualize auction insights data over time, broken down by domain, with filtering, directly in Data Studio.__
 
 ![Example time-series](docs/result.png)
 
-If you ever tried to visualize auction insights in Data Studio, you might have noticed that it's not possible to create a time series chart of auction insights metrics (impression share, outranking share, ...) broken down by domain.
-This project aims to remedy that by providing a [community visualization](https://developers.google.com/datastudio/visualization) that does exactly that.
+If you ever tried to visualize auction insights in Data Studio, you might have noticed that time series charts of auction insights metrics (impression share, outranking share, ...), broken down by domain, throw an error when you apply a filter.
+This project aims to remedy that by providing a [community visualization](https://developers.google.com/datastudio/visualization) that keeps working and that you can use as a drop-in replacement for the standard time series.
 
 
 ## Setup
@@ -19,7 +19,7 @@ After that, you can easily use it in as many Data Studio dashboards as you want.
 To host the code, you'll need to copy it to your own Cloud Storage bucket.
 You'll only need to do this the very first time you want to use this visualization in any dashboard.
 
-  - [Create a Cloud Storage bucket](https://cloud.google.com/storage/docs/creating-buckets) in your Google Cloud Platform project, if you don't have a bucket yet.
+  - [Create a Cloud Storage bucket](https://cloud.google.com/storage/docs/creating-buckets) in your Google Cloud Platform project, if you don't have one yet.
   - Fill in the variable `CLOUD_STORAGE_BUCKET` in `deploy.sh` based on the name of your bucket.
   - Run `./deploy.sh`. This will copy the visualization code to the specified bucket.
     Note that this command requires that you have [gsutil](https://cloud.google.com/storage/docs/gsutil) installed and working.
@@ -49,9 +49,10 @@ Every time you want to add this visualization to a dashboard, you'll need to fol
   - Configure the community visualization as follows (on the tab __Data__):
     - Drag a time dimension (such as __Year__, __Month__, __Week__ or __Day__) to the __Main Dimension__ field.
     - Drag __Auction Insight - Domain__ to the __Breakdown dimension__ field.
-    - Drag an auction insight metric (such as __Impr. share__) to the __Metric__ field.
+    - Drag an auction insight metric (such as __Impr. share__) to the __Metric__ field.  
+      ![Configuration pane](docs/configuration-pane.png)
 
-Congratulations! You're now able a nice chart as seen above.
+Congratulations! You should now have a nice chart as seen above.
 At this point, you might want to add filters for a specific campaign or ad group.
 
 
