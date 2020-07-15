@@ -1,21 +1,22 @@
 {
   "name": "Auction Insights - Visualizations",
-  "logoUrl": "https://raw.githubusercontent.com/googledatastudio/community-visualizations/master/docs/codelab/img/bar_chart.png",
-  "organization": "gTech - Customer Solutions Engineering",
-  "supportUrl": "https://url",
-  "packageUrl": "https://url",
-  "privacyPolicyUrl": "https://url",
   "description": "Custom visualizations for auction insights using the Google Ads connector.",
+  "logoUrl": "https://raw.githubusercontent.com/google/auction-insights-visualization/master/docs/logo.png",
+  "organization": "gTech - Customer Solutions Engineering",
+  "supportUrl": "https://github.com/google/auction-insights-visualization",
+  "packageUrl": "https://github.com/google/auction-insights-visualization",
+  "privacyPolicyUrl": "https://github.com/google/auction-insights-visualization",
+  "organizationUrl": "https://github.com/google/auction-insights-visualization",
+  "termsOfServiceUrl": "https://github.com/google/auction-insights-visualization",
   "devMode": true,
   "components": [{
     "id": "timeSeries",
     "name": "Time Series",
-    "iconUrl": "https://raw.githubusercontent.com/googledatastudio/community-visualizations/master/docs/codelab/img/bar_chart.png",
-    "description": "A custom time-series component that allows breaking down auction insights by domain.",
+    "iconUrl": "https://raw.githubusercontent.com/google/auction-insights-visualization/master/docs/logo.png",
+    "description": "A time series chart to visualize auction insights metrics (or any other time series).",
     "resource": {
       "js": "gs://$CLOUD_STORAGE_BUCKET/aiViz.js",
-      "config": "gs://$CLOUD_STORAGE_BUCKET/aiViz.json",
-      "css": "gs://$CLOUD_STORAGE_BUCKET/aiViz.css"
+      "config": "gs://$CLOUD_STORAGE_BUCKET/aiViz.json"
     }
   }]
 }
