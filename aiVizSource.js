@@ -183,6 +183,16 @@ function drawViz(data) {
     });
   }
 
+  // Set a custom callback to render the metrics as a percentage on the y axis
+  // if this option is enabled in the configuration
+  if (data.style.metricAsPercentage.value) {
+    config.options.scales.yAxes[0].ticks = {
+      callback: (value, index, values) => value * 100 + ' %'
+    }
+  } else {
+    delete config.options.scales.yAxes[0].ticks;
+  }
+
   chart.update();
 }
 
