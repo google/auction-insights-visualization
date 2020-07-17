@@ -36,20 +36,100 @@
   ],
   "style": [
     {
-      "id": "axes",
-      "label": "Axes",
+      "id": "verticalAxis",
+      "label": "Vertical Axis",
       "elements": [
         {
-          "type": "CHECKBOX",
-          "id": "metricAsPercentage",
-          "label": "Display metric as percentage",
-          "defaultValue": ""
+          "id": "verticalAxisPosition",
+          "label": "Position",
+          "type": "SELECT_SINGLE",
+          "defaultValue": "left",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horizontalAxis",
+      "label": "Horizontal Axis",
+      "elements": [
+        {
+          "id": "horizontalAxisOpacity",
+          "label": "Opacity",
+          "type": "OPACITY",
+          "defaultValue": 1
+        }
+      ]
+    },
+    {
+      "id": "series",
+      "label": "Series",
+      "elements": [
+        {
+          "id": "seriesDashedLines",
+          "label": "Use dashed lines",
+          "defaultValue": false,
+          "type": "CHECKBOX"
+        }
+      ]
+    },
+    {
+      "id": "grid",
+      "label": "Grid",
+      "elements": [
+        {
+          "id": "showGrid",
+          "label": "Show grid",
+          "defaultValue": true,
+          "type": "CHECKBOX"
+        }
+      ]
+    },
+    {
+      "id": "legend",
+      "label": "Legend",
+      "elements": [
+        {
+          "id": "legendPosition",
+          "label": "Position",
+          "type": "SELECT_SINGLE",
+          "defaultValue": "top",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Hidden",
+              "value": "hidden"
+            }
+          ]
         }
       ]
     },
     {
       "id": "data",
-      "Label": "Data",
+      "label": "Data",
       "elements": [
         {
           "type": "TEXTINPUT",

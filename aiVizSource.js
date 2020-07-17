@@ -41,6 +41,8 @@ let config = {
         tension: 0
       }
     },
+    legend: {
+    },
     hover: {
       mode: 'nearest',
       intersect: true
@@ -52,6 +54,11 @@ let config = {
           display: true,
           labelString: null
         },
+        gridLines: {
+          display: false
+        },
+        ticks: {},
+        scaleLabel: {},
         type: 'time',
         time: {
           parser: 'YYYYMMDD',
@@ -60,9 +67,7 @@ let config = {
             'day': 'YYYY-MM-DD',
             'week': 'YYYY-MM-DD',
             'month': 'MMM YYYY'
-
-          }
-
+          },
         }
       }],
       yAxes: [{
@@ -70,6 +75,9 @@ let config = {
         scaleLabel: {
           display: true,
           labelString: null
+        },
+        gridLines: {
+          display: false
         }
       }]
     }
@@ -176,6 +184,7 @@ function drawViz(data) {
     config.data.datasets.push({
       label: breakdownDimension !== '' ? breakdownDimension : 'You',
       backgroundColor: color,
+      borderDash: data.style.seriesDashedLines.value ? [5, 5] : [],
       borderColor: color,
       borderWidth: 2,
       data: values,
@@ -183,17 +192,49 @@ function drawViz(data) {
     });
   }
 
-  // Set a custom callback to render the metrics as a percentage on the y axis
-  // if this option is enabled in the configuration
-  if (data.style.metricAsPercentage.value) {
+  config.options.scales.yAxes[0].position = data.style.verticalAxisPosition.value;
+
+  // Set a custom callback to render the metric ticks based on the metric type
+  const metricType = data.fields.metric[0].type;
+  if (metricType === 'PERCENT') {
     config.options.scales.yAxes[0].ticks = {
       callback: (value, index, values) => value * 100 + ' %'
+    }
+  } else if (metricType === 'CURRENCY_ EUR') {
+    config.options.scales.yAxes[0].ticks = {
+      callback: (value, index, values) => '€ ' + value
+    }
+  } else if (metricType === 'CURRENCY_ USD') {
+    config.options.scales.yAxes[0].ticks = {
+      callback: (value, index, values) => '$ ' + value
+    }
+  } else if (metricType === 'CURRENCY_ GBP') {
+    config.options.scales.yAxes[0].ticks = {
+      callback: (value, index, values) => '£ ' + value
     }
   } else {
     delete config.options.scales.yAxes[0].ticks;
   }
 
-  chart.update();
+  // Set both the ticks and axes label font color based on the specified style
+  const horizontalAxisColor = 'rgba(102, 102, 102,' + data.style.horizontalAxisOpacity.value + ')';
+  config.options.scales.xAxes[0].ticks.fontColor = horizontalAxisColor;
+  config.options.scales.xAxes[0].scaleLabel.fontColor = horizontalAxisColor;
+
+  // Show gridlines if enabled
+  config.options.scales.xAxes[0].gridLines.display = data.style.showGrid.value;
+  config.options.scales.yAxes[0].gridLines.display = data.style.showGrid.value;
+
+  const legendPosition = data.style.legendPosition.value;
+  if (legendPosition === 'hidden') {
+    config.options.legend.display = false;
+  } else {
+    config.options.legend.display = true;
+    config.options.legend.position = legendPosition;
+  }
+
+  // Update the chart without animating
+  chart.update(0);
 }
 
 // Subscribe to data and style changes
