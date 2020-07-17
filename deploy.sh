@@ -36,7 +36,7 @@ if ! [ -f deps/moment.min.js ]; then
 fi
 
 if ! [ -f deps/chart.min.js ]; then
-  curl -o deps/chart.min.js https://cdn.jsdelivr.net/npm/chart.js@2.8.0
+  curl -o deps/chart.min.js https://cdn.jsdelivr.net/npm/chart.js@2.9.3
 fi
 
 # Combine the dependencies with the custom code and write to aiViz.js.
