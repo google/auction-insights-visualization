@@ -10,29 +10,10 @@ This project aims to remedy that by providing a [community visualization](https:
 
 ## Setup
 
-Before you can start using this visualization, you'll need to copy the code to your own Cloud Storage bucket.
-After that, you can easily use it in as many Data Studio dashboards as you want.
-
-
-### Uploading the visualization to Cloud Storage
-
-To host the code, you'll need to copy it to your own Cloud Storage bucket.
-You'll only need to do this the very first time you want to use this visualization in any dashboard.
-
-  - [Create a Cloud Storage bucket](https://cloud.google.com/storage/docs/creating-buckets) in your Google Cloud Platform project, if you don't have one yet.
-  - Fill in the variable `CLOUD_STORAGE_BUCKET` in `deploy.sh` based on the name of your bucket.
-  - Run `./deploy.sh`. This will copy the visualization code to the specified bucket.
-    Note that this command requires that you have [gsutil](https://cloud.google.com/storage/docs/gsutil) installed and working.
-    
-At this point, you bucket should contain the files `manifest.json`, `aiViz.json`, `aiViz.js`,  and `aiViz.css`.
-
-
-### Creating a dashboard using the visualization
-
-Every time you want to add this visualization to a dashboard, you'll need to follow the steps below:
+Open a Data Studio dashboard that uses the [Google Ads connector](https://support.google.com/datastudio/answer/7020275?hl=en), or create a new dashboard if needed.
+To add the visualization, follow these steps:
 
   - Enable community visualizations for the Google Ads connector:
-    - Create a new Data Studio dashboard that uses the [Google Ads connector](https://support.google.com/datastudio/answer/7020275?hl=en).
     - Click on __Resource__ > __Manage added data sources__ in the top menu bar.
     - Click on __Edit__ next to the Google Ads connector.
     - Click on __Community visualizations access__ in the upper right corner and switch it to __On__.
@@ -42,7 +23,7 @@ Every time you want to add this visualization to a dashboard, you'll need to fol
     - Click on the __Community visualizations and components__ button in the top menu bar (next to __Add a chart__)
     - Click on __+ Explore more__ in the window that pops up.
     - Click on __Build your own visualization__.
-    - Enter the name of your Cloud Storage bucket prefixed with `gs://` in the field __Manifest path__ (e.g. `gs://community-viz-experiment`) 
+    - Enter `gs://time-series-viz/v1` in the field __Manifest path__.
     - Click __Submit__.
     - Click on __Time Series__ and drag the new chart somewhere on your dashboard.
     
@@ -54,6 +35,18 @@ Every time you want to add this visualization to a dashboard, you'll need to fol
 
 Congratulations! You should now have a nice chart as seen above.
 At this point, you might want to add filters for a specific campaign or ad group.
+
+## Hosting it yourself (optional)
+
+If you rather host the visualization yourself (which is totally optional), you can copy it to your own Cloud Storage bucket.
+You'll only need to do this the very first time you want to use this visualization in any dashboard.
+
+  - [Create a Cloud Storage bucket](https://cloud.google.com/storage/docs/creating-buckets) in your Google Cloud Platform project, if you don't have one yet.
+  - Fill in the variable `CLOUD_STORAGE_BUCKET` in `deploy.sh` based on the name of your bucket.
+  - Run `./deploy.sh`. This will copy the visualization code to the specified bucket.
+    Note that this command requires that you have [gsutil](https://cloud.google.com/storage/docs/gsutil) installed and working.
+
+At this point, you bucket should contain the files `manifest.json`, `aiViz.json`, `aiViz.js`,  and `aiViz.css`.
 
 
 ## Limitations
