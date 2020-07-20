@@ -18,6 +18,7 @@ To add the visualization, follow these steps:
     - Click on __Edit__ next to the Google Ads connector.
     - Click on __Community visualizations access__ in the upper right corner and switch it to __On__.
     - Click __Save__, followed by __Done__ and __Close__ in the upper right to exit the data sources configuration.
+      ![Enable community visualization](docs/enable-community-visualizations.png)
 
   - Add the community visualization to your dashboard:
     - Click on the __Community visualizations and components__ button in the top menu bar (next to __Add a chart__)
@@ -26,6 +27,7 @@ To add the visualization, follow these steps:
     - Enter `gs://time-series-viz/v1` in the field __Manifest path__.
     - Click __Submit__.
     - Click on __Time Series__ and drag the new chart somewhere on your dashboard.
+      ![Add community visualization](docs/add-community-visualization.png)
     
   - Configure the community visualization as follows (on the tab __Data__):
     - Drag a time dimension (such as __Year__, __Month__, __Week__ or __Day__) to the __Main Dimension__ field.
