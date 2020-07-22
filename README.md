@@ -31,12 +31,26 @@ To add the visualization, follow these steps:
     
   - Configure the community visualization as follows (on the tab __Data__):
     - Drag a time dimension (such as __Year__, __Month__, __Week__ or __Day__) to the __Main Dimension__ field.
-    - Drag __Auction Insight - Domain__ to the __Breakdown dimension__ field.
+    - Drag __Auction Insight - Domain__ to the __Breakdown dimension__ field.  
+      (Or see [here](#does-this-support-shopping-campaigns) for shopping campaigns)
     - Drag an auction insight metric (such as __Impr. share__) to the __Metric__ field.  
       ![Configuration pane](docs/configuration-pane.png)
 
 Congratulations! You should now have a nice chart as seen above.
 At this point, you might want to add filters for a specific campaign or ad group.
+
+## Frequently asked questions
+
+### Does this support Shopping campaigns?
+
+Yes! Just select _Auction Insight - Store display name_ as the breakdown dimension and one of the supported metrics for Shopping (see table below).
+
+|                         | Search                                                                                           | Shopping                                                                          |
+|-------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| __Main Dimension__      | Day, Week, Month, Year                                                                           | Day, Week, Month, Year                                                            |
+| __Breakdown Dimension__ | Auction Insight - Domain                                                                         | Auction Insight - Store display name                                              |
+| __Metric__              | Impr. share,<br>Overlap Rate,<br>Outranking Share,<br>Top of page rate,<br>Abs. top of page rate | Shopping impression share,<br>Shopping overlap rate,<br>Shopping outranking share<br><br><br> |
+
 
 ## Hosting it yourself (optional)
 
