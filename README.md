@@ -10,8 +10,7 @@ This project aims to remedy that by providing a [community visualization](https:
 
 ## Setup
 
-Open a Data Studio dashboard that uses the [Google Ads connector](https://support.google.com/datastudio/answer/7020275?hl=en), or create a new dashboard if needed.
-To add the visualization, follow these steps:
+  - Open a Data Studio report that uses the [Google Ads connector](https://support.google.com/datastudio/answer/7020275?hl=en), or create a blank report and add your Google Ads account as a data source to that report.
 
   - Enable community visualizations for the Google Ads connector:
     - Click on __Resource__ > __Manage added data sources__ in the top menu bar.
@@ -20,13 +19,13 @@ To add the visualization, follow these steps:
     - Click __Save__, followed by __Done__ and __Close__ in the upper right to exit the data sources configuration.
       ![Enable community visualization](docs/enable-community-visualizations.png)
 
-  - Add the community visualization to your dashboard:
+  - Add the community visualization to your report:
     - Click on the __Community visualizations and components__ button in the top menu bar (next to __Add a chart__)
     - Click on __+ Explore more__ in the window that pops up.
     - Click on __Build your own visualization__.
     - Enter `gs://time-series-viz/v1` in the field __Manifest path__.
     - Click __Submit__.
-    - Click on __Time Series__ and drag the new chart somewhere on your dashboard.
+    - Click on __Time Series__ and drag the new chart somewhere on your report.
       ![Add community visualization](docs/add-community-visualization.png)
     
   - Configure the community visualization as follows (on the tab __Data__):
@@ -55,7 +54,7 @@ Yes! Just select _Auction Insight - Store display name_ as the breakdown dimensi
 ## Hosting it yourself (optional)
 
 If you rather host the visualization yourself (which is totally optional), you can copy it to your own Cloud Storage bucket.
-You'll only need to do this the very first time you want to use this visualization in any dashboard.
+You'll only need to do this the very first time you want to use this visualization in any report.
 
   - [Create a Cloud Storage bucket](https://cloud.google.com/storage/docs/creating-buckets) in your Google Cloud Platform project, if you don't have one yet.
   - Fill in the variable `CLOUD_STORAGE_BUCKET` in `deploy.sh` based on the name of your bucket.
