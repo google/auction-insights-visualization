@@ -198,7 +198,7 @@ function drawViz(data) {
   const metricType = data.fields.metric[0].type;
   if (metricType === 'PERCENT') {
     config.options.scales.yAxes[0].ticks = {
-      callback: (value, index, values) => value * 100 + ' %'
+      callback: (value, index, values) => (Math.round(value * 10000) / 100) + ' %'
     }
   } else if (metricType === 'CURRENCY_ EUR') {
     config.options.scales.yAxes[0].ticks = {
